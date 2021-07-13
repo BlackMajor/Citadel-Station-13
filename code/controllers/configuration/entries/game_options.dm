@@ -7,6 +7,13 @@
 /datum/config_entry/keyed_list/probability/ValidateListEntry(key_name)
 	return key_name in config.modes
 
+/datum/config_entry/keyed_list/chaos_level
+	key_mode = KEY_MODE_TEXT
+	value_mode = VALUE_MODE_NUM
+
+/datum/config_entry/keyed_list/chaos_level/ValidateListEntry(key_name)
+	return key_name in config.modes
+
 /datum/config_entry/keyed_list/max_pop
 	key_mode = KEY_MODE_TEXT
 	value_mode = VALUE_MODE_NUM
@@ -261,6 +268,15 @@
 		/mob/living/carbon/alien/humanoid/royal/praetorian = 0,
 		/mob/living/carbon/alien/humanoid/royal/queen = 2
 	)
+
+/datum/config_entry/number/sprintless_stagger_slowdown
+	config_entry_value = 0
+
+/datum/config_entry/number/melee_stagger_factor
+	config_entry_value = 1
+
+/datum/config_entry/number/sprintless_off_balance_slowdown
+	config_entry_value = 0.85
 
 /datum/config_entry/number/movedelay	//Used for modifying movement speed for mobs.
 	abstract_type = /datum/config_entry/number/movedelay
@@ -595,4 +611,9 @@
 
 /// Dirtyness multiplier for making turfs dirty
 /datum/config_entry/number/turf_dirty_multiplier
+	config_entry_value = 1
+
+/datum/config_entry/flag/weigh_by_recent_chaos
+
+/datum/config_entry/number/chaos_exponent
 	config_entry_value = 1

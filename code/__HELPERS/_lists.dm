@@ -15,7 +15,7 @@
 #define LAZYREMOVE(L, I) if(L) { L -= I; if(!length(L)) { L = null; } }
 #define LAZYADD(L, I) if(!L) { L = list(); } L += I;
 #define LAZYOR(L, I) if(!L) { L = list(); } L |= I;
-#define LAZYFIND(L, V) L ? L.Find(V) : 0
+#define LAZYFIND(L, V) (L ? L.Find(V) : 0)
 #define LAZYACCESS(L, I) (L ? (isnum(I) ? (I > 0 && I <= length(L) ? L[I] : null) : L[I]) : null)
 #define LAZYSET(L, K, V) if(!L) { L = list(); } L[K] = V;
 #define LAZYLEN(L) length(L)
@@ -614,7 +614,7 @@
 		used_key_list[input_key] = 1
 	return input_key
 
-#if DM_VERSION > 513
+#if DM_VERSION > 514
 #error Remie said that lummox was adding a way to get a lists
 #error contents via list.values, if that is true remove this
 #error otherwise, update the version and bug lummox
